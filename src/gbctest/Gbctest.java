@@ -5,8 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Gbctest {
 
@@ -23,7 +22,7 @@ public class Gbctest {
         return con;
     }
   
-    public static void main(String[] args) {
+    public void add() {
         Scanner sc = new Scanner(System.in);
         connectDB ();
         System.out.println("First Name: ");
@@ -44,7 +43,7 @@ public class Gbctest {
             pst.setString(3, ems);
             pst.setString(4, sts);
             pst.executeUpdate();
-            System.out.println("Inseted Succesfully!");
+            System.out.println("Inserted Succesfully!");
             
          } catch (SQLException ex) {
             System.out.println("Connection Error." +ex.getMessage());
