@@ -14,7 +14,7 @@ public class It2bdemoapp {
             System.out.println("4. DELETE");
             System.out.println("5. EXIT");
 
-            System.out.println("Enter Action: ");
+            System.out.print("Enter Action: ");
             int action = sc.nextInt();
             It2bdemoapp sample = new It2bdemoapp ();
             switch(action){
@@ -22,6 +22,21 @@ public class It2bdemoapp {
                     sample.addpeople();
                     break;
                 case 2:
+                    sample.viewpeople();      
+                    break;
+                case 3:
+                    sample.viewpeople();
+                    sample.updatepeople();
+                    sample.viewpeople();
+                    break;
+                case 4:
+                     sample.viewpeople();
+                    sample.deletepeople();
+                    sample.viewpeople();
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    System.exit(0);
                     break;
         }
             System.out.println("Do you want to continue? (yes/no): ");
@@ -49,4 +64,43 @@ public class It2bdemoapp {
                 conf.addRecord(sql, fname, lname, email, status);
 
         }
+             private void viewpeople() {
+        String qry = "SELECT * FROM StudentsG";
+        String[] hdrs = {"ID", "First Name", "Last Name", "Email", "Status"};
+        String[] clmns = {"s_id", "s_fname", "s_lname", "s_email", "s_status"};
+
+        config conf = new config();
+        conf.viewRecords(qry, hdrs, clmns);
     }
+
+             private void updatepeople(){
+             Scanner sc = new Scanner(System.in);
+             System.out.print("Enter ID to update: ");
+             int id = sc.nextInt();
+             
+                 System.out.print("New First Name: ");
+                 String nfname = sc.next();
+                 System.out.print("New Last Name: ");
+                 String nlname = sc.next();
+                 System.out.print("New Email: ");
+                 String nemail = sc.next();
+                 System.out.print("New Status: ");
+                 String nstatus = sc.next();
+                 
+                 String qry = "UPDATE StudentsG SET s_fname = ?, s_lname = ?, s_email = ?, s_status = ? WHERE s_id = ?";
+                 
+                 config conf = new config();
+                 conf.updateRecord(qry, nfname, nlname, nemail, nstatus, id);
+             }
+             
+             private void deletepeople(){
+             Scanner sc = new Scanner(System.in);
+             System.out.println("Enter ID to delete: ");
+             int id = sc.nextInt();
+             
+             String qry = "DELETE FROM StudentsG WHERE s_id = ?";
+             
+             config conf = new config();
+             conf.deleteRecord(qry, id);
+             }
+}

@@ -27,7 +27,7 @@ public class Gbctest {
         connectDB ();
         System.out.println("First Name: ");
         String fn = sc.nextLine();
-        System.out.println("Lst Name: ");
+        System.out.println("Last Name: ");
         String ln = sc.nextLine();
         System.out.println("Email: ");
         String ems = sc.nextLine();
