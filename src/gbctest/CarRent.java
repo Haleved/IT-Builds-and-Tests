@@ -1,7 +1,9 @@
 package gbctest;
+
 import java.util.Scanner;
 
-public class It2bdemoapp {
+
+public class CarRent {
     
     public static void main(String[] args){
         Scanner sc = new Scanner (System.in);
@@ -16,7 +18,7 @@ public class It2bdemoapp {
 
             System.out.print("Enter Action: ");
             int action = sc.nextInt();
-            It2bdemoapp sample = new It2bdemoapp ();
+            CarRent sample = new CarRent ();
             switch(action){
                 case 1:
                     sample.addpeople();
